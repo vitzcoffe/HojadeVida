@@ -1,0 +1,239 @@
+<style>
+:root{
+  --md-primary:#00f5d4;
+  --md-secondary:#ff3b3b;
+  --md-bg:#050510;
+  --md-surface:rgba(255,255,255,0.04);
+  --md-glass:rgba(255,255,255,0.06);
+  --md-text:#eaf2ff;
+  --md-muted:#9aa4b2;
+  --radius:24px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  font-family:'Roboto',sans-serif;
+  background:linear-gradient(135deg,#040409,#0b0b18,#09091a);
+  background-size:400% 400%;
+  animation:bgMove 18s ease infinite;
+  color:var(--md-text);
+  height:100%;
+  overflow:hidden;
+}
+
+/* Animated gradient background */
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* NAVBAR MATERIAL */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  padding:16px 0;
+  backdrop-filter:blur(18px);
+  background:rgba(10,10,18,0.6);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  z-index:1000;
+}
+
+nav a{
+  font-family:'Orbitron',sans-serif;
+  font-size:13px;
+  letter-spacing:1px;
+  color:var(--md-primary);
+  text-decoration:none;
+  padding:8px 16px;
+  border-radius:50px;
+  position:relative;
+  overflow:hidden;
+  transition:.3s;
+}
+
+nav a:hover{
+  background:var(--md-glass);
+  box-shadow:0 0 18px rgba(0,245,212,.3);
+}
+
+nav a.active{
+  background:var(--md-secondary);
+  color:#fff;
+  box-shadow:0 0 22px rgba(255,59,59,.4);
+}
+
+/* SECTIONS */
+.section{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-top:100px;
+  opacity:0;
+  transform:translateY(20px) scale(.97);
+  transition:.5s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+
+.section.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
+}
+
+/* CARD MATERIAL GLASS */
+.card{
+  background:var(--md-surface);
+  backdrop-filter:blur(20px);
+  border-radius:var(--radius);
+  padding:42px;
+  width:90%;
+  max-width:1100px;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.6),
+    inset 0 0 30px rgba(255,255,255,.02);
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.8),
+    0 0 40px rgba(0,245,212,.15);
+}
+
+/* TITLES */
+h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:34px;
+  color:var(--md-primary);
+  margin-bottom:14px;
+  text-shadow:0 0 12px rgba(0,245,212,.4);
+}
+
+h2{
+  font-family:'Orbitron',sans-serif;
+  color:var(--md-secondary);
+  margin-bottom:20px;
+}
+
+p{
+  color:var(--md-muted);
+  line-height:1.7;
+}
+
+/* PROFILE */
+.profile-grid{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:32px;
+  align-items:center;
+}
+
+.avatar{
+  width:200px;
+  height:200px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 0 30px rgba(0,245,212,.4);
+  transition:.4s;
+}
+
+.avatar:hover{
+  transform:scale(1.05);
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.contact{
+  margin-top:18px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  color:var(--md-primary);
+}
+
+.contact div{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:var(--md-glass);
+  padding:8px 14px;
+  border-radius:50px;
+  transition:.3s;
+}
+
+.contact div:hover{
+  box-shadow:0 0 15px rgba(0,245,212,.3);
+}
+
+/* PROGRAMS */
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:22px;
+}
+
+.program{
+  background:var(--md-glass);
+  padding:18px;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,0.04);
+}
+
+.program img{
+  width:64px;
+  height:64px;
+}
+
+.program span{
+  color:var(--md-muted);
+  font-size:13px;
+}
+
+.program:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(255,59,59,.3);
+}
+
+/* FOOTER */
+footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  text-align:center;
+  padding:12px;
+  font-size:12px;
+  color:var(--md-muted);
+  border-top:1px solid rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+}
+
+@media (max-width:900px){
+  .profile-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+</style>

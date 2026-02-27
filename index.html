@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daniel Sebastian Ramos | Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* === VARIABLES === */
+:root{
+/* === TEMAS === */
+
+body.dark{
+  --primary:#ff3d3d;
+  --bg:#071018;
+  --surface:#11161d;
+  --outline:#1b2430;
+  --text:#ffffff;
+  --muted:#e6eef8;
+  --focus:#ffd1d1;
+}
+
+body.light{
+  --primary:#d60000;
+  --bg:#f2f5f9;
+  --surface:#ffffff;
+  --outline:#000000;
+  --text:#111111;
+  --muted:#ffffff;
+  --focus:#ffb3b3;
+}
+
+/* Botones de tema */
+.theme-buttons{
+  position:absolute;
+  right:20px;
+  display:flex;
+  gap:10px;
+}
+
+.theme-buttons button{
+.theme-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:2px solid var(--primary);
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  font-size:18px;
+  color:var(--text);
+  transition:0.3s;
+}
+
+.theme-link:hover{
+  transform:scale(1.1);
+}
+}
+
+.theme-buttons button:hover{
+  transform:scale(1.1);
+}
+  --primary:#ff3d3d;
+  --bg:#071018;
+  --surface:#11161d;
+  --outline:#1b2430;
+  --text:#ffffff;
+  --muted:#e6eef8;
+  --focus:#ffd1d1;
+  --header-h:80px;
+  --nav-h:72px;
+  --radius:20px;
+  --base-font:18px;
+}
+
+/* === BASE === */
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  height:100%;
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(135deg,var(--bg),#0d131a);
+  color:var(--text);
+  font-size:var(--base-font);
+  line-height:1.6;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;}
+}
+
+/* === SKIP LINK === */
+.skip-link{
+  position:fixed;
+  top:8px;
+  left:8px;
+  background:#000;
+  color:#fff;
+  padding:10px;
+  border-radius:8px;
+  transform:translateY(-120%);
+}
+.skip-link:focus{transform:translateY(0);}
+
+/* === HEADER === */
+header{
+  position:sticky;
+  top:0;
+  height:var(--header-h);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(6,10,14,.9);
+  border-bottom:2px solid var(--outline);
+  color:var(--primary);
+  font-weight:700;
+}
+
+/* === NAV === */
+nav{
+  position:sticky;
+  top:var(--header-h);
+  height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(8,12,18,.95);
+  border-bottom:1px solid var(--outline);
+}
+
+[role="tablist"]{
+  display:flex;
+  gap:12px;
+}
+
+[role="tab"]{
+  background:none;
+  border:1px solid transparent;
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  color:var(--muted);
+  font-weight:600;
+}
+
+[role="tab"][aria-selected="true"]{
+  color:var(--primary);
+  border-color:rgba(255,61,61,.4);
+}
+
+[role="tab"]:focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+}
+
+/* === MAIN === */
+main{
+  padding:calc(var(--header-h) + var(--nav-h)) 16px 40px;
+  display:flex;
+  justify-content:center;
+}
+
+.card{
+  max-width:1000px;
+  width:100%;
+  background:var(--surface);
+  padding:32px;
+  border-radius:var(--radius);
+}
+
+/* Panels */
+[role="tabpanel"]{
+  outline:none;
+}
+[hidden]{
+  display:none;
+}
+
+/* Typography */
+h1,h2{color:var(--primary); margin-bottom:10px;}
+p,li{color:var(--muted);}
+ul{margin-left:20px; margin-top:8px;}
+a{color:#fff; text-decoration:underline;}
+
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header role="banner">
+  <h1 style="font-size:1.3rem;">Daniel Sebastian Ramos Moreno — Software Engineer</h1>
+  <div class="theme-buttons">
+  <button id="btn-dark" aria-label="Modo oscuro">🌙</button>
+  <button id="btn-light" aria-label="Modo claro">☀️</button>
+   <a href="hoja.html" class="theme-link" aria-label="Ir a hoja de vida">
+    🚀
+</header>
+
+<nav aria-label="Navegación principal">
+  <div role="tablist" aria-label="Secciones del CV" aria-orientation="horizontal">
+    <button type="button" role="tab" id="tab-perfil" aria-selected="true" aria-controls="panel-perfil">Perfil</button>
+    <button type="button" role="tab" id="tab-estudios" aria-selected="false" aria-controls="panel-estudios" tabindex="-1">Estudios</button>
+    <button type="button" role="tab" id="tab-experiencia" aria-selected="false" aria-controls="panel-experiencia" tabindex="-1">Experiencia</button>
+    <button type="button" role="tab" id="tab-habilidades" aria-selected="false" aria-controls="panel-habilidades" tabindex="-1">Habilidades</button>
+    <button type="button" role="tab" id="tab-idiomas" aria-selected="false" aria-controls="panel-idiomas" tabindex="-1">Idiomas</button>
+    <button type="button" role="tab" id="tab-referencias" aria-selected="false" aria-controls="panel-referencias" tabindex="-1">Referencias</button>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- PERFIL -->
+  <section id="panel-perfil" role="tabpanel" tabindex="0" aria-labelledby="tab-perfil">
+    <div class="card">
+      <h2>Perfil Profesional</h2>
+      <p>Estudiante de Ingeniería de Software con experiencia en monitoreo tecnológico y soporte técnico.</p>
+    </div>
+  </section>
+
+  <!-- ESTUDIOS -->
+  <section id="panel-estudios" role="tabpanel" tabindex="0" aria-labelledby="tab-estudios" hidden>
+    <div class="card">
+      <h2>Estudios</h2>
+      <p>Ingeniería de Software – Universidad Manuela Beltrán</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="panel-experiencia" role="tabpanel" tabindex="0" aria-labelledby="tab-experiencia" hidden>
+    <div class="card">
+      <h2>Experiencia</h2>
+      <article>
+        <h3>Operario de Monitoreo</h3>
+        <ul>
+          <li>Supervisión satelital</li>
+          <li>Gestión de alertas críticas</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="panel-habilidades" role="tabpanel" tabindex="0" aria-labelledby="tab-habilidades" hidden>
+    <div class="card">
+      <h2>Habilidades Técnicas</h2>
+      <ul>
+        <li>SQL</li>
+        <li>Soporte técnico</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section id="panel-idiomas" role="tabpanel" tabindex="0" aria-labelledby="tab-idiomas" hidden>
+    <div class="card">
+      <h2>Idiomas</h2>
+      <p>Español: Nativo</p>
+      <p>Inglés: Intermedio</p>
+    </div>
+  </section>
+
+  <!-- REFERENCIAS -->
+  <section id="panel-referencias" role="tabpanel" tabindex="0" aria-labelledby="tab-referencias" hidden>
+    <div class="card">
+      <h2>Referencias</h2>
+      <p>Disponibles bajo petición</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const tabs = document.querySelectorAll('[role="tab"]');
+const panels = document.querySelectorAll('[role="tabpanel"]');
+
+function activateTab(tab){
+  tabs.forEach(t=>{
+    t.setAttribute('aria-selected','false');
+    t.setAttribute('tabindex','-1');
+  });
+
+  panels.forEach(p=>p.hidden=true);
+
+  tab.setAttribute('aria-selected','true');
+  tab.removeAttribute('tabindex');
+
+  const panel = document.getElementById(tab.getAttribute('aria-controls'));
+  panel.hidden=false;
+  panel.focus();
+}
+
+tabs.forEach((tab, index)=>{
+  tab.addEventListener('click',()=>activateTab(tab));
+
+  tab.addEventListener('keydown',(e)=>{
+    let newIndex=null;
+    if(e.key==="ArrowRight") newIndex=(index+1)%tabs.length;
+    if(e.key==="ArrowLeft") newIndex=(index-1+tabs.length)%tabs.length;
+    if(e.key==="Home") newIndex=0;
+    if(e.key==="End") newIndex=tabs.length-1;
+    if(newIndex!==null){
+      tabs[newIndex].focus();
+      e.preventDefault();
+    }
+    if(e.key==="Enter" || e.key===" "){
+      activateTab(tab);
+      e.preventDefault();
+    }
+  });
+});
+
+</script>
+<script>
+const btnDark = document.getElementById("btn-dark");
+const btnLight = document.getElementById("btn-light");
+const btnFuture = document.getElementById("btn-future");
+
+btnDark.addEventListener("click",()=>{
+  document.body.classList.remove("light","future");
+  document.body.classList.add("dark");
+});
+
+btnLight.addEventListener("click",()=>{
+  document.body.classList.remove("dark","future");
+  document.body.classList.add("light");
+});
+
+btnFuture.addEventListener("click",()=>{
+  document.body.classList.remove("dark","light");
+  document.body.classList.add("future");
+});
+
+/* Tema por defecto */
+document.body.classList.add("dark");
+
+</script>
+</body>
+</html>
